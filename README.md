@@ -1,1 +1,2 @@
 # et2602-yeya18-lab1
+Designing a chat client that participate in a chat session against the reference server, with one or multiple other clients. i.e. client displaying messages from the server without user input and showing clearly what comes from the server and whats locally generated. Also enabling client to send a message at ant point in time, not waiting for the server (as with the client, the server should work without any user input). 
