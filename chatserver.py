@@ -9,6 +9,7 @@ if len(sys.argv)!=2:
     sys.exit()
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 Info = (sys.argv[1])
 a=Info.split(':')
 IP_addr=str(a[0])
