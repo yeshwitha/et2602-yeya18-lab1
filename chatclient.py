@@ -29,7 +29,21 @@ elif ok_msg == "ERR malformed nick name":
     print('do not enter nick name with special characters,limit to 12 chars')
     print('sorry you are disconnected try again with valid nickname')
     sys.exit()
-
-
+while True:
+    socket_list=[sys.stdin, server]
+   
+    read_sockets,write_sockets,error_sockets=select.select(socket_list,[],[])
+   
+    for sockets in read_sockets:
+        if sockets == server:
+            msg = sockets.recv(2048).decode('utf-8')
+            print(message)
+        else:
+            msg=sys.stdin.readline()
+            message = 'MSG '+ msg
+            if msg == '\n':
+                continue
+            else:
+                server.sendall(msg.decode('utf-8'))
 
 server.close() #closing the connection
